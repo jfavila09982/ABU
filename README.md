@@ -18,7 +18,7 @@ ABU prioritizes user privacy and anonymity, especially when sending anonymous me
 
 ## Folder Structures
 ```
-my-react-app/
+abu-frontend/
 ├── public/
 │   ├── index.html       # Main HTML file
 │   └── ...
