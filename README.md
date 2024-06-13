@@ -45,7 +45,7 @@ Become part of the ABU movement and redefine social interaction. Embrace authent
 
 ---
 
-For more information, visit our [official website](#) or follow me on [social media](#).
+For more information, visit our [official website](#) or follow me on [social media](https://www.linkedin.com/in/jun-marco-favila-269a731b1/).
 
 ---
 
