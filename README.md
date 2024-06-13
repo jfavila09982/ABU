@@ -16,6 +16,37 @@ Step into a realm where genuine connections thrive and authenticity reigns supre
 ABU prioritizes user privacy and anonymity, especially when sending anonymous messages. Here’s a high-level overview of how user anonymity is maintained in the ABU app:
 
 
+## Folder Structures
+```
+my-react-app/
+├── public/
+│   ├── index.html       # Main HTML file
+│   └── ...
+├── src/
+│   ├── assets/
+│   │   ├── images/      # Image assets
+│   │   └── styles/      # CSS files
+│   │       ├── App.css
+│   │       └── index.css
+│   ├── components/      # Reusable components
+│   │   ├── Header.js
+│   │   ├── Footer.js
+│   │   └── ...
+│   ├── pages/           # Page components
+│   │   ├── Home.js
+│   │   ├── About.js
+│   │   └── ...
+│   ├── App.js           # Main App component
+│   ├── index.js         # Entry point for React
+│   └── ...
+├── .gitignore           # Git ignore file
+├── package.json         # NPM package file
+├── README.md            # README file
+└── ...
+```
+
+
+
 ## Join the ABU Community
 
 Become part of the ABU movement and redefine social interaction. Embrace authenticity, foster deeper connections, and enjoy the freedom to be yourself. Download ABU today and start your journey towards genuine and meaningful connections!
