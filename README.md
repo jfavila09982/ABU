@@ -15,29 +15,6 @@ Step into a realm where genuine connections thrive and authenticity reigns supre
 
 ABU prioritizes user privacy and anonymity, especially when sending anonymous messages. Here’s a high-level overview of how user anonymity is maintained in the ABU app:
 
-### Workflow for Achieving User Anonymity
-
-1. **User A sends an anonymous message to User B**:
-    - User A composes an anonymous message within the app and selects User B as the recipient.
-    - The message is encrypted and sent to the server.
-
-2. **Server receives and processes the message**:
-    - The server receives the encrypted message from User A.
-    - The server decrypts the message and removes any identifying information about User A.
-    - The server stores the anonymous message in a secure database.
-
-3. **User B receives the anonymous message**:
-    - User B's device requests new messages from the server.
-    - The server sends the anonymous message to User B's device.
-    - User B's device decrypts the message and displays it in the app.
-    - User B interacts with the message without knowing the identity of User A.
-
-4. **Optional: Moderation and Filtering**:
-    - The server may apply moderation and filtering algorithms to the message content to ensure compliance with community guidelines and prevent abuse or inappropriate content.
-
-5. **Ensuring Anonymity**:
-    - The app's architecture and encryption protocols ensure that user identities are kept confidential throughout the message exchange process.
-    - User A's identity remains hidden from User B, preserving anonymity and encouraging open and honest communication.
 
 ## Join the ABU Community
 
