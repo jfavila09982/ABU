@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { Box, Typography } from '@mui/material';
-import ChatHeader from './ChatHeader';
-import ChatInput from './ChatInput';
-import ChatMessage from './ChatMessage';
+import React, { useState } from "react";
+import { Box, Typography } from "@mui/material";
+import ChatHeader from "./ChatHeader";
+import ChatInput from "./ChatInput";
+import ChatMessage from "./ChatMessage";
 
 function ChatWindow() {
   const [messages, setMessages] = useState([]);
   const [userInfo] = useState({
-    userId: '12321232',
-    ipAddress: '192.168.1.1',
-    device: 'Desktop',
+    userId: "12321232",
+    ipAddress: "192.168.1.1",
+    device: "Desktop",
   });
 
   const handleSendMessage = (message) => {
@@ -41,7 +41,8 @@ function ChatWindow() {
         <ChatInput onSend={handleSendMessage} />
         <Box p={2}>
           <Typography variant="caption">
-            User ID: {userInfo.userId} | IP Address: {userInfo.ipAddress} | Device: {userInfo.device}
+            User ID: {userInfo.userId} | IP Address: {userInfo.ipAddress} |
+            Device: {userInfo.device}
           </Typography>
         </Box>
       </Box>
