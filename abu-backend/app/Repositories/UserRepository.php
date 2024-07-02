@@ -3,50 +3,85 @@
 namespace App\Repositories;
 
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
+use Jenssegers\Agent\Agent;
 
 class UserRepository
 {
-    protected $user;
-
-    public function __construct(User $user)
+    public function createUser(Request $request, array $data)
     {
-        $this->user = $user;
-    }
+        // Get the user's IP address
+        $ipAddress = $request->ip();        
 
-    public function all()
-    {
-        return $this->user->all();
-    }
+        // Validate the incoming data
+        $validator = Validator::make($data, [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8',
+        ]);
 
-    public function find($id)
-    {
-        return $this->user->find($id);
-    }
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
 
-    public function create(array $data)
-    {
-        return $this->user->create($data);
-    }
+        try {
+            // Hash the password before storing it
+            $data['password'] = bcrypt($data['password']);
+            // Add IP address to the data array
+            $data['ip_address'] = $ipAddress;
 
-    public function update($id, array $data)
-    {
-        $user = $this->user->find($id);
-        if ($user) {
-            $user->update($data);
-
+            $user = User::create($data);
             return $user;
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'User could not be created'], 500);
         }
-
-        return null;
     }
 
-    public function delete($id)
-    {
-        $user = $this->user->find($id);
-        if ($user) {
-            return $user->delete();
-        }
+    public function randomUsers(Request $request)
+{
+    if (!Session::has('user_id')) {
+        Session::put('user_id', (string) Str::uuid());
+    }
+   
+    $device = $request->server('HTTP_USER_AGENT');
+  
 
-        return false;
+    $data = [
+        'user_id' => Session::get('user_id'),
+        'device' => $device,
+    ];   
+    return response()->json([
+        'message' => 'success',
+        'data' => $data,
+        'status' => 200
+    ]);
+}
+    public function getAllUsers()
+    {
+        return User::all();
+    }
+
+    public function getUserById($id)
+    {
+        return User::findOrFail($id);
+    }
+
+    public function updateUser($id, array $data)
+    {
+        $user = User::findOrFail($id);
+        $currentIp = $user->getCurrentAddress();
+        $ipAddress = $currentIp; 
+        $user['ip_address'] = $ipAddress;
+        $user->update($data);
+        return $user;
+    }
+
+    public function deleteUser($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
     }
 }
