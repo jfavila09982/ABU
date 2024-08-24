@@ -41,7 +41,7 @@ function ChatWindow() {
         <ChatInput onSend={handleSendMessage} />
         <Box p={2}>
           <Typography variant="caption">
-            User ID: {userInfo.userId} | IP Address: {userInfo.ipAddress} |
+            Session ID: {userInfo.userId} | IP Address: {userInfo.ipAddress} |
             Device: {userInfo.device}
           </Typography>
         </Box>
