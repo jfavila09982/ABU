@@ -1,24 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import ChatHeader from "./ChatHeader";
 import ChatInput from "./ChatInput";
 import ChatMessage from "./ChatMessage";
-import { getClientIP } from "./getClientAddress";
-
 
 function ChatWindow() {
   const [messages, setMessages] = useState([]);
-
-  if(!messages){
-    console.log('User doest provided message')
-  }
-  else{
-  setMessages(true);
-  }
-
   const [userInfo] = useState({
     userId: "12321232",
-    ipAddress: 'sampleip',
+    ipAddress: "192.168.1.1",
     device: "Desktop",
   });
 
@@ -51,7 +41,7 @@ function ChatWindow() {
         <ChatInput onSend={handleSendMessage} />
         <Box p={2}>
           <Typography variant="caption">
-            Session ID: {userInfo.userId} | IP Address: {userInfo.ipAddress} |
+            User ID: {userInfo.userId} | IP Address: {userInfo.ipAddress} |
             Device: {userInfo.device}
           </Typography>
         </Box>
