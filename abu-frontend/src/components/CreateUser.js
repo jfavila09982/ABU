@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Box, Typography, Button, TextField } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function CreateUser() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [messages, setMessages] = useState([]);
   const [userInfo, setUserInfo] = useState({
@@ -25,7 +27,7 @@ function CreateUser() {
 
     setLoading(true);
 
-    
+
     setError(null);
 
     try {
@@ -44,8 +46,10 @@ function CreateUser() {
 
       // Clear the username input
       setUsername("");
-
       console.log("User session created:", data);
+      navigate("/chat");
+
+
     } catch (error) {
       setError("Error creating user session.");
       console.error("Error creating user session:", error);

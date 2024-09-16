@@ -22,6 +22,7 @@ function ChatInput({ onSend }) {
     }
   };
 
+  
   const handleCloseSnackbar = () => {
     setOpenSnackbar(false);
   };
