@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant U as User
+    participant S as Server
+    participant DB as Database
+    participant WS as WebSocket Server
+    participant RMQ as RabbitMQ
+
+    U->>S: User Input (Connect request)
+    S->>DB: Create Session
+    DB-->>S: Return Session ID
+    S->>WS: Establish WebSocket connection
+    WS-->>S: Connection confirmed
+    S->>RMQ: Set up message queue (optional)
+    RMQ-->>S: Queue ready (if used)
+    S-->>U: Return Session ID and connection details
